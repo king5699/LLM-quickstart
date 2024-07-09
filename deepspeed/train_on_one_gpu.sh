@@ -22,7 +22,7 @@ deepspeed --num_gpus=1 translation/run_translation.py \
 
 
 
-# DeepSpeed ZeRO-3 模式单 GPU 训练翻译模型（T5-Large）
+# DeepSpeed ZeRO-3 模式单 GPU 训练翻译模型（T5-3B）
 deepspeed --num_gpus=1 translation/run_translation.py \
 --deepspeed config/ds_config_zero3.json \
 --model_name_or_path t5-3b --per_device_train_batch_size 1 \
