@@ -167,3 +167,4 @@ peft/temp/
 deepspeed/output_dir
 RLHF
 homework/tmp.ipynb
+deepspeed/tmp
