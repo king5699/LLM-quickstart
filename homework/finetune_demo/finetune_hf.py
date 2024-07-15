@@ -33,6 +33,7 @@ from transformers import (
 from transformers import DataCollatorForSeq2Seq as _DataCollatorForSeq2Seq
 
 from transformers import Seq2SeqTrainer as _Seq2SeqTrainer
+from transformers.integrations import TensorBoardCallback
 
 ModelType = Union[PreTrainedModel, PeftModelForCausalLM]
 TokenizerType = Union[PreTrainedTokenizer, PreTrainedTokenizerFast]
@@ -530,6 +531,7 @@ def main(
         eval_dataset=val_dataset.select(list(range(50))),
         tokenizer=tokenizer if use_tokenizer else None,  # LORA does not need tokenizer
         compute_metrics=functools.partial(compute_metrics, tokenizer=tokenizer),
+        callbacks=[TensorBoardCallback()]
     )
 
     if auto_resume_from_checkpoint.upper() == "" or auto_resume_from_checkpoint is None:

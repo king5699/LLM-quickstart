@@ -17,28 +17,24 @@ ensuring that the chat interface displays formatted text correctly.
 """
 
 import os
+from pathlib import Path
+from threading import Thread
+from typing import Annotated, Union
+
 import gradio as gr
 import torch
-from threading import Thread
 
-from typing import Union, Annotated
-from pathlib import Path
 from peft import AutoPeftModelForCausalLM, PeftModelForCausalLM
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    PreTrainedModel,
-    PreTrainedTokenizer,
-    PreTrainedTokenizerFast,
-    StoppingCriteria,
-    StoppingCriteriaList,
-    TextIteratorStreamer
-)
+from transformers import (AutoModelForCausalLM, AutoTokenizer, PreTrainedModel,
+                          PreTrainedTokenizer, PreTrainedTokenizerFast,
+                          StoppingCriteria, StoppingCriteriaList,
+                          TextIteratorStreamer)
 
 ModelType = Union[PreTrainedModel, PeftModelForCausalLM]
 TokenizerType = Union[PreTrainedTokenizer, PreTrainedTokenizerFast]
 
-MODEL_PATH = os.environ.get('MODEL_PATH', '/root/huggingface/hub/chatglm3-6b')
+# MODEL_PATH = os.environ.get('MODEL_PATH', '/root/huggingface/hub/chatglm3-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', '/root/projects/LLM-quickstart/homework/output/checkpoint-2800')
 TOKENIZER_PATH = os.environ.get("TOKENIZER_PATH", MODEL_PATH)
 
 

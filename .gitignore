@@ -168,3 +168,5 @@ deepspeed/output_dir
 RLHF
 homework/tmp.ipynb
 deepspeed/tmp
+*checkpoint-*
+!homework/output/checkpoint-2800
