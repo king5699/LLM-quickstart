@@ -330,6 +330,7 @@ print(f'ChatGLM3-6B 微调后：\n{response}')
 
 ```python
 dataset = load_dataset("databricks/databricks-dolly-15k", split='train')
+model_id = "NousResearch/Llama-2-7b-hf" 
 ```
 
 ### 第十五章
